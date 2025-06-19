@@ -46,8 +46,10 @@ const lib = ffi.Library(libraryPath, {
   'retro_api_version': ['int', []]
 });
 
-// Call the 'retro_api_version' function from the loaded library.
-const result = lib.retro_api_version();
+if (require.main === module) {
+  // Call the 'retro_api_version' function from the loaded library.
+  const result = lib.retro_api_version();
+  console.log("API Version:", result);
+}
 
-// Print the result to the console.
-console.log("API Version:", result);
+module.exports = lib;

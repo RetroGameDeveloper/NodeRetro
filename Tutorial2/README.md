@@ -201,7 +201,7 @@ handleResize();
 To run this, save the code above as `screen.js` and execute it with Node.js:
 
 ```bash
-node "Tutorial 2 - Initial SDL Screen with Input/screen.js"
+node "Tutorial2/screen.js"
 ```
 
 You should see a window with a colorful gradient and a white square. You can move the square around using the arrow keys.
