@@ -1,4 +1,5 @@
 # Tutorial 2 - Graphics and Input
+
 Ok now that we know we can successfully call the emulator call lets make a small detour and create a simple window that allows the user to move a pixel around the screen with their arrow keys.
 
 We will use SDL for this for a couple of reasons:
@@ -11,7 +12,46 @@ First step is to install the SDL Nodejs bindings like so:
 npm install @kmamal/sdl
 ```
 
-Now, let's create a file named `screen.js` and add the following code.
+## Tutorial Structure
+
+This tutorial is split into three files:
+
+*   `screen.start.js`: This is the starting point. It contains the basic structure of the application, but the core functions are empty. You will need to fill in the code to make the tests pass.
+*   `screen.solution.js`: This file contains the complete, working solution. If you get stuck, you can refer to this file to see how it's done.
+*   `screen.test.js`: This file contains the tests for the screen rendering and player movement. You can run these tests to check your progress.
+
+## Running the code
+
+To run the application, you can execute the `start` or `solution` files with Node.js:
+
+To run the starting point:
+```bash
+node "Tutorial2/screen.start.js"
+```
+
+To run the solution:
+```bash
+node "Tutorial2/screen.solution.js"
+```
+
+You should see a window with a colorful gradient and a white square. You can move the square around using the arrow keys. The window is also resizable.
+
+## Running the tests
+
+To run the tests, you can use the following command:
+
+```bash
+npm test -- Tutorial2/screen.test.js
+```
+
+This will run the tests against the `screen.start.js` file. If you want to run the tests against the solution, you can set the `SOLUTION` environment variable:
+
+```bash
+SOLUTION=true npm test -- Tutorial2/screen.test.js
+```
+
+## Tutorial Steps
+
 
 ### 1. Setup and Window Creation
 First, we import the `sdl` library and create a window.
@@ -198,11 +238,10 @@ handleResize();
 ```
 
 ### Running the code
-To run this, save the code above as `screen.js` and execute it with Node.js:
+To run this, save the code above as `screen.start.js` and execute it with Node.js:
 
 ```bash
-node "Tutorial2/screen.js"
+node "Tutorial2/screen.start.js"
 ```
 
 You should see a window with a colorful gradient and a white square. You can move the square around using the arrow keys.
-The window is also resizable.

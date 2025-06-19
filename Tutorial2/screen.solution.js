@@ -1,12 +1,12 @@
 // Import the 'sdl' library, which provides low-level access to audio, keyboard, mouse, joystick, and graphics hardware.
-import sdl from '@kmamal/sdl'
+import { video } from '@kmamal/sdl';
 
 // --- Setup ---
 // Create a new window with a title and make it resizable. This window will be our screen.
-const window = sdl.video.createWindow({ title: "NodeRetro", resizable: true });
+const window = video.createWindow({ title: "NodeRetro", resizable: true });
 
 // The 'player' object holds the state of the character we can control.
-const player = {
+export const player = {
   x: 0, // The horizontal position (x-coordinate) of the player.
   y: 0, // The vertical position (y-coordinate) of the player.
   width: 10, // The width of the player's rectangle.
@@ -16,7 +16,7 @@ const player = {
 };
 
 // The 'screen' object holds the state of our display buffer.
-const screen = {
+export const screen = {
   width: 0, // The width of the screen in pixels.
   height: 0, // The height of the screen in pixels.
   stride: 0, // The number of bytes per row of pixels.
@@ -27,7 +27,7 @@ const screen = {
  * This function updates the screen's dimensions and re-allocates the buffer.
  * It should be called whenever the window is resized.
  */
-function updateScreenDimensions() {
+export function updateScreenDimensions() {
   // Get the current width and height of the window.
   const { pixelWidth, pixelHeight } = window;
   screen.width = pixelWidth;
@@ -42,7 +42,7 @@ function updateScreenDimensions() {
  * This function draws a color gradient to the screen buffer.
  * The color changes from top-to-bottom and left-to-right.
  */
-function drawBackground() {
+export function drawBackground() {
   let offset = 0;
   // Loop through each row (y-coordinate).
   for (let i = 0; i < screen.height; i++) {
@@ -63,7 +63,7 @@ function drawBackground() {
 /**
  * This function draws the player's rectangle onto the screen buffer.
  */
-function drawPlayer() {
+export function drawPlayer() {
   // Loop through each pixel of the player's rectangle.
   for (let i = 0; i < player.height; i++) {
     for (let j = 0; j < player.width; j++) {
@@ -89,7 +89,7 @@ function drawPlayer() {
  * This function orchestrates the drawing of a single frame.
  * It clears the screen by drawing the background, then draws the player.
  */
-function redraw() {
+export function redraw() {
   drawBackground();
   drawPlayer();
   // Render the final buffer to the window.
